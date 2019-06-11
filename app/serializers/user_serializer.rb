@@ -1,3 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id
+  has_many :projects, dependent: :destroy
+  attributes :id, :username
 end
+ 

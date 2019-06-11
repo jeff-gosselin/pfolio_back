@@ -13,7 +13,13 @@ class Api::V1::ProjectsController < ApplicationController
 
     def create
         @project = Project.create(project_params)
+        render json: @project
+    end
 
+    def update
+        @project = Project.find(project_params[:id])
+        @project.update(project_params)
+        render json: @project
     end
 
     private
