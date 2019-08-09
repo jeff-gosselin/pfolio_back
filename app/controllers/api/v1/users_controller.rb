@@ -23,11 +23,11 @@ class Api::V1::UsersController < ApplicationController
 				render json: { user: UserSerializer.new(@user), jwt: @token},
 				status: :created
 			else
-				render json: { error: 'Failed to create user' }, status: :not_acceptable
+				render json: { error: 'Failed to create user.' }, status: :not_acceptable
 			end
 		
 		else
-			render json: { error: 'Admin account already exists' }, status: :not_acceptable
+			render json: { error: 'Only one admin account allowed.' }, status: :not_acceptable
 		end
 
 		
