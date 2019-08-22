@@ -46,3 +46,5 @@ gem "active_model_serializers", "~> 0.10.9"
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "jwt", "~> 2.1"
+
+gem "google-cloud-storage", "~> 1.21", require: false
