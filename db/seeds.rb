@@ -1,4 +1,4 @@
-# User.destroy_all
+User.destroy_all
 Project.destroy_all
 
 # u1 = User.create({username: 'Jeff', password_digest: '123abc'})
