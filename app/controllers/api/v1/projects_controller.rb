@@ -7,7 +7,7 @@ class Api::V1::ProjectsController < ApplicationController
     end
 
     def show
-        @project = Project.find(:params[:id])
+        @project = Project.find(params[:id])
         render json: @project
     end
 
