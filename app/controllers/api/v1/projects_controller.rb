@@ -8,7 +8,8 @@ class Api::V1::ProjectsController < ApplicationController
 
     def show
         @project = Project.find(params[:id])
-        render json: @project
+				@project_img = url_for(@project.image)
+        render json: @project_img
     end
 
     def create
