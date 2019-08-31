@@ -18,9 +18,16 @@ class Api::V1::ProjectsController < ApplicationController
     end
 
     def update
-        @project = Project.find(project_params[:id])
+        @project = Project.find(params[:id])
         @project.update(project_params)
         render json: @project
+    end
+
+    def destroy
+        @project = Project.find(params[:id])
+        @image = ActiveStorage::Attachment.find(params[:id])
+        @project.destroy
+        @image.purge
     end
 
     private
