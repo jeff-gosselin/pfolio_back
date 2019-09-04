@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-    skip_before_action :authorized, only: [:create]
+    skip_before_action :authorized, only: [:create, :update]
 
 	def profile
 		render json: {user: UserSerializer.new(current_user)}, status: :accepted
@@ -29,13 +29,18 @@ class Api::V1::UsersController < ApplicationController
 		else
 			render json: { error: 'Only one admin account allowed.' }, status: :not_acceptable
 		end
-
 		
+	end
+
+	def update
+		@user = User.find(params[:id])
+		@user.update(user_params)
+		render json: @user
 	end
 
 	private
 
 	def user_params
-		params.require(:user).permit(:username, :password)
+		params.require(:user).permit(:username, :password, :pic)
 	end
 end

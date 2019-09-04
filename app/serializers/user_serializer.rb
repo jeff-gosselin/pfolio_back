@@ -1,4 +1,18 @@
 class UserSerializer < ActiveModel::Serializer
   has_many :projects, dependent: :destroy
-  attributes :id, :username
+  include Rails.application.routes.url_helpers
+    
+    attributes :pic_url
+    
+    # def pic_url
+    #     rails_blob_path(object.pic, only_path: true) if object.pic.attached?
+    # end
+
+    def pic_url
+      {
+        picture: self.object.pic.service_url
+     }
+    end
+
 end
+
