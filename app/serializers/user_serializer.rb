@@ -3,7 +3,8 @@ class UserSerializer < ActiveModel::Serializer
   include Rails.application.routes.url_helpers
     
     attributes :id, :username, :pic_url
-    
+    has_many :skills
+    has_one :summary
     # def pic_url
     #     rails_blob_path(object.pic, only_path: true) if object.pic.attached?
     # end

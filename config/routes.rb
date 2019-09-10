@@ -6,6 +6,8 @@ Rails.application.routes.draw do
       get '/admin', to: 'users#profile'
 			resources :users
       resources :projects
+      resources :skills
+      resources :summaries
       
   	end
   end
