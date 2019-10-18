@@ -50,3 +50,7 @@ gem "jwt", "~> 2.1"
 # gem "google-cloud-storage", "~> 1.21", require: false
 
 gem "aws-sdk-s3"
+
+group :production do
+  gem 'pg', '>= 0.18', '< 2.0'
+end
