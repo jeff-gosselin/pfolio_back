@@ -18,6 +18,7 @@ class Api::V1::UsersController < ApplicationController
 	def create
 		if User.count < 1
 			@user = User.create(user_params)
+			p @user
 			if @user.valid? && User.count == 1
 				@token = encode_token({user_id: @user.id})
 				render json: { user: UserSerializer.new(@user), jwt: @token},
@@ -35,6 +36,7 @@ class Api::V1::UsersController < ApplicationController
 	def update
 		@user = User.find(params[:id])
 		@user.update(user_params)
+		p @user
 		render json: @user
 	end
 
